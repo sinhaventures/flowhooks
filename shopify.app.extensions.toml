@@ -1,0 +1,9 @@
+type = "flow_action"
+name = "flowhooks-flow"
+handle = "send-to-webhook"
+
+[[flow]]
+name = "Send to Webhook"
+description = "Sends event data to a configured webhook URL"
+target = "https://onion-guinea-agency-laura.trycloudflare.com/api/webhook"
+input = { type = "object", required = true }

@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "flowhooks"
+client_id = "9e9292a8e32dba7c60e16a18746022c8"
+application_url = "https://significant-cn-profiles-picked.trycloudflare.com"
+embedded = true
+
+[webhooks]
+api_version = "2024-01"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_metafields"
+
+[auth]
+redirect_urls = [
+  "https://significant-cn-profiles-picked.trycloudflare.com/auth/callback",
+  "https://significant-cn-profiles-picked.trycloudflare.com/auth/shopify/callback",
+  "https://significant-cn-profiles-picked.trycloudflare.com/api/auth/callback"
+]
+
+[build]
+dev_store_url = "flowhooks.myshopify.com"
+automatically_update_urls_on_dev = true

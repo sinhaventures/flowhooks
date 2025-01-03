@@ -1,0 +1,4 @@
+
+input Input {
+  event_data: JSON!
+}

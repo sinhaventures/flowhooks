@@ -1,0 +1,6 @@
+type = "flow_action"
+name = "Send to Webhook"
+handle = "send-to-webhook"
+description = "Sends event data to a configured webhook URL"
+apiVersion = "2024-01"
+runtime_url = "https://cutting-varied-eva-urw.trycloudflare.com/api/webhook"
