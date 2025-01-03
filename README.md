@@ -1,10 +1,32 @@
-# Shopify App Template - Remix
+# Flowhooks - Shopify Flow Webhook Integration App
 
-This is a template for building a [Shopify app](https://shopify.dev/docs/apps/getting-started) using the [Remix](https://remix.run) framework.
+Flowhooks is a Shopify app that enables seamless webhook integration through Shopify Flow. It allows merchants to forward Flow event data to configurable webhook URLs, making it easy to integrate Shopify events with external systems.
 
-Rather than cloning this repo, you can use your preferred package manager and the Shopify CLI with [these steps](https://shopify.dev/docs/apps/getting-started/create).
+## Features
 
-Visit the [`shopify.dev` documentation](https://shopify.dev/docs/api/shopify-app-remix) for more details on the Remix app package.
+- **Flow Action Integration**: Create Flow automations that send event data to external webhook URLs
+- **Configurable Webhooks**: Set up and manage webhook URLs through a simple settings interface
+- **Secure Storage**: Webhook URLs are securely stored in Shopify metafields
+- **Rate Limiting**: Built-in rate limiting to prevent API abuse
+- **Error Handling**: Robust error handling and validation for webhook delivery
+
+## Technical Overview
+
+- **Framework**: Built with Remix
+- **UI Components**: Uses Shopify Polaris
+- **Language**: TypeScript/JavaScript
+- **Key Components**:
+  - Settings Page (`app/routes/app._index.jsx`)
+  - Webhook Endpoint (`app/routes/api.webhook.jsx`)
+  - Flow Action Extension (`extensions/flowhooks-flow`)
+
+## Configuration
+
+The app requires the following environment variables:
+- `REDIS_URL`: Redis connection string for rate limiting
+- `MAX_RETRY_ATTEMPTS`: Maximum webhook delivery retry attempts
+- `DEFAULT_TIMEOUT`: Webhook request timeout in milliseconds
+- `WEBHOOK_RATE_LIMIT`: Maximum webhook requests per time window
 
 ## Quick start
 
@@ -170,6 +192,15 @@ export default defineConfig({
   ],
 });
 ```
+
+## Shopify Flow Integration
+
+To use Flowhooks in your Flow automations:
+
+1. Configure your webhook URL in the app settings
+2. Create a new Flow automation
+3. Add the Flowhooks action to your Flow
+4. Configure the event data you want to send
 
 ## Gotchas / Troubleshooting
 
